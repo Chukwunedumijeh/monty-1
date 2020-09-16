@@ -1,9 +1,14 @@
-#ifndef _MONTY.H_
-#define _MONTY.H_
+#ifndef _MONTY_H_
+#define _MONTY_H_
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+
+int n;
+
 /**
+ *
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
  * @prev: points to the previous element of the stack (or queue)
@@ -32,4 +37,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void functions_monty(stack_t **stack, char *command_f, unsigned int line_number);
 #endif
