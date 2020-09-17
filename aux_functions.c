@@ -1,9 +1,11 @@
 #include "monty.h"
 /**
- *	print_dlistint - print all elements of a dlistint_t list.
- * @h: poirnter to dlisntint_t struct.
+ * pall - print all elements of stack.
+ * @stack: pointer head stack.
+ * @line_number: files line number.
  * Return: the number of nodes.
  */
+
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *h = *stack;
@@ -63,9 +65,17 @@ void pint(stack_t **stack, unsigned int line_number)
 	printf("%d\n", (*stack)->n);
 }
 
+/**
+ * pop - remove a element to the top of stack.
+ * @stack: pointer to head of stack.
+ * @line_number: files line number.
+ * Return: void.
+ */
+
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node = *stack;
+
 	if ((*stack) == NULL)
 	{
 		printf("L%d: can't pint, stack empty\n", line_number);
@@ -79,6 +89,13 @@ void pop(stack_t **stack, unsigned int line_number)
 		free(node);
 	}
 }
+
+/**
+ * swap - swap two element in stack.
+ * @stack: pointer to head of stack.
+ * @line_number: files line number.
+ * Return: void.
+ */
 
 void swap(stack_t **stack, unsigned int line_number)
 {
