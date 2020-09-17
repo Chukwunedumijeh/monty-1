@@ -12,6 +12,7 @@ char *lines_check(char *buffer, unsigned int line_number)
         if (num_t == NULL)
         {
             printf("L%u: usage: push integer\n", line_number);
+            var_glob[2] = 1;
             return (NULL);
         }
         for (i = 0; num_t[i] != '\0'; i++)
@@ -20,6 +21,7 @@ char *lines_check(char *buffer, unsigned int line_number)
             if (num_t[i] < 48 || num_t[i] > 57)
             {
                 printf("L%u: usage: push integer\n", line_number);
+                var_glob[2] = 1;
                 return (NULL);
             }
         }
@@ -46,7 +48,7 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
         exit(EXIT_FAILURE);
     }
-    while (-1 != getline(&buffer, &size, file))
+    while (EOF != getline(&buffer, &size, file))
     {
         line_number++;
         if (strlen(buffer) == 1 || strspn(buffer, " \t\n") == strlen(buffer))

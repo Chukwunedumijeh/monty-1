@@ -9,9 +9,11 @@ void functions_monty(stack_t **stack, char *command_f, unsigned int line_number)
 	unsigned int i;
 	for (i = 0; command_f != NULL; i++)
 	{
+		printf("%d, %d",i ,line_number );
 		if (strcmp(funct_monty[i].opcode, command_f) == 0)
 		{
 			funct_monty[i].f(stack, line_number);
+			break;
 		}
 	}
 }
