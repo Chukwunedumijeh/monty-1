@@ -32,7 +32,7 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: usage: push integer", line_number);
 		exit(EXIT_FAILURE);
 	}
-	node = malloc(sizeof(stack_t));
+	node = malloc(sizeof(stack_t) * 3);
 	if (node == NULL)
 	{
 		exit(EXIT_FAILURE);
