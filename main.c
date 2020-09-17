@@ -1,10 +1,10 @@
 #include "monty.h"
 
-​char *lines_check(char *buffer, unsigned int line_number)
+char *lines_check(char *buffer, unsigned int line_number)
 {
     char *token, *num_t;
     unsigned int i;
-​
+
     token = strtok(buffer, " \t\n");
     if (strcmp(token, "push") == 0)
     {
@@ -27,7 +27,7 @@
     }
     return (token);
 }
-​
+
 int main(int argc, char *argv[])
 {
     stack_t *stack = NULL;
