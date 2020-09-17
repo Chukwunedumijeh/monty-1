@@ -128,7 +128,7 @@ You have to use ``malloc`` and ``free`` and are not allowed to use any other fun
       </p>
 </p>
 <p align="center">
-    <h3 align="center"Luis Carvajal</h3>
+    <h3 align="center">Luis Carvajal</h3>
       <p align="center">
         <a href="https://twitter.com/LuisCar05071543" target="_blank">
             <img alt="twitter_page" src="https://github.com/gedafu/readme-template/blob/master/images/twitter.png" style="float: center; margin-right: 10px" height="30" width="30">
@@ -148,5 +148,5 @@ You have to use ``malloc`` and ``free`` and are not allowed to use any other fun
 </p>
 <p align="center">
 <b>September, 2020.<b>
-<b>Cohort 12<b>
+<b>Cohort 12
 </p>
