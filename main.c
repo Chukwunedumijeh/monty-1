@@ -1,9 +1,9 @@
 #include "monty.h"
-
+int var_glob[] = {0, 0, 0};
 char *lines_check(char *buffer, unsigned int line_number)
 {
     char *token, *num_t;
-    unsigned int i;
+    long int i;
 
     token = strtok(buffer, " \t\n");
     if (strcmp(token, "push") == 0)
@@ -12,16 +12,17 @@ char *lines_check(char *buffer, unsigned int line_number)
         if (num_t == NULL)
         {
             printf("L%u: usage: push integer\n", line_number);
-            var_glob[2] = 1;
+            var_glob[1] = -1;
             return (NULL);
         }
         for (i = 0; num_t[i] != '\0'; i++)
         {
-            /*HERE */
+            if (num_t[i] == '-')
+                i++;
             if (num_t[i] < 48 || num_t[i] > 57)
             {
                 printf("L%u: usage: push integer\n", line_number);
-                var_glob[2] = 1;
+                var_glob[1] = -1;
                 return (NULL);
             }
         }
@@ -59,6 +60,9 @@ int main(int argc, char *argv[])
         functions_monty(&stack, command_f, line_number);
     }
     free(buffer);
+    free_malloc(&stack);
     fclose(file);
+    if (var_glob[1] == -1)
+        exit(EXIT_FAILURE);
     return (0);
 }
