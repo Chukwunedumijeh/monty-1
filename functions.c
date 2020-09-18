@@ -40,8 +40,6 @@ void functions_monty(stack_t **stack, char *command_f, unsigned int line_numb)
 
 	while (i < 11 && command_f != NULL)
 	{
-		if (command_f[0] == '#')
-			break;
 		if (strcmp(funct_monty[i].opcode, command_f) == 0)
 		{
 			funct_monty[i].f(stack, line_numb);
@@ -50,7 +48,7 @@ void functions_monty(stack_t **stack, char *command_f, unsigned int line_numb)
 		}
 		i++;
 	}
-	if (checker == 0 && command_f[0] != '#')
+	if (checker == 0)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_numb, command_f);
 		free(command_f);
