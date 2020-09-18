@@ -52,8 +52,7 @@ void functions_monty(stack_t **stack, char *command_f, unsigned int line_numb)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_numb, command_f);
 		free(command_f);
-		free_malloc(*stack);
-		free(stack);
+		var_glob[1] == 1;
 		exit(EXIT_FAILURE);
 	}
 }
