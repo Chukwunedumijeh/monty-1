@@ -9,8 +9,8 @@
 
 char *lines_check(char *buffer, unsigned int line_number)
 {
-	char *token, *num_t;
-	long int i;
+	char *token = NULL, *num_t = NULL;
+	long int i = 0;
 
 	token = strtok(buffer, " \t\n");
 	if (strcmp(token, "push") == 0)
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 	FILE *file;
 	char *buffer = NULL, *command_f = NULL;
 	size_t size = 0;
-	unsigned int line_number;
+	unsigned int line_number = 0;
 
 	if (argc != 2)
 	{

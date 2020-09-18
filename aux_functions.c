@@ -26,11 +26,13 @@ void pall(stack_t **stack, unsigned int line_number)
 
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node, *copy = *stack;
+	stack_t *node = NULL;
+	stack_t *copy = *stack;
 	(void)line_number;
+
 	if (stack == NULL)
 	{
-		printf("L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		var_glob[1] = 1;
 		return;
 	}
@@ -39,7 +41,8 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free(stack);
-		exit(EXIT_FAILURE);
+		var_glob[1] = 1;
+		return;
 	}
 	node->prev = NULL;
 	node->n = var_glob[0];
@@ -60,7 +63,6 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-		free(stack);
 		var_glob[1] = 1;
 		return;
 	}

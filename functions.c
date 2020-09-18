@@ -21,7 +21,6 @@ void free_malloc(stack_t *head)
 		free(lista);
 	}
 }
-
 /**
  * functions_monty - compare the opcodes and run the function asociate.
  * @stack: poiter to head of the stack.
@@ -29,24 +28,20 @@ void free_malloc(stack_t *head)
  * @line_numb: line number in file.
  * Return: void.
  */
-
 void functions_monty(stack_t **stack, char *command_f, unsigned int line_numb)
 {
 	instruction_t funct_monty[] = {
-	    {"pall", pall},
-	    {"push", push},
-	    {"pint", pint},
-	    {"pop", pop},
-	    {"swap", swap},
-	    {"add", add},
-	    {"nop", nop},
-	    {NULL, NULL}};
+	    {"pall", pall}, {"push", push},
+	    {"pint", pint}, {"pop", pop},
+	    {"swap", swap}, {"add", add},
+	    {"nop", nop}, {"sub", sub},
+	    {"div", _div}, {"mul", mul},
+	    {"mod", mod}, {NULL, NULL}};
 	unsigned int i = 0;
 	int checker = 0;
 
-	while (i < 7 && command_f != NULL)
+	while (i < 10 && command_f != NULL)
 	{
-
 		if (strcmp(funct_monty[i].opcode, command_f) == 0)
 		{
 			funct_monty[i].f(stack, line_numb);
@@ -62,4 +57,15 @@ void functions_monty(stack_t **stack, char *command_f, unsigned int line_numb)
 		var_glob[1] = 1;
 		exit(EXIT_FAILURE);
 	}
+}
+/**
+ * nop - doesn't do anything.
+ * @stack: pointer head stack.
+ * @line_number: line number in file.
+ * Return: void.
+ */
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
