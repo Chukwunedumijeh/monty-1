@@ -30,14 +30,14 @@ void push(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if (stack == NULL)
 	{
-		printf("L%d: usage: push integer", line_number);
+		printf("L%d: usage: push integer\n", line_number);
 		var_glob[1] = 1;
 		return;
 	}
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		free(stack);
 		exit(EXIT_FAILURE);
 	}
@@ -59,7 +59,7 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		printf("L%u: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		free(stack);
 		var_glob[1] = 1;
 		return;
@@ -80,7 +80,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if ((*stack) == NULL)
 	{
-		printf("L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		free(stack);
 		var_glob[1] = 1;
 		return;
@@ -112,7 +112,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 	if (i < 2)
 	{
-		printf("L%u: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		free(stack);
 		var_glob[1] = 1;
 		return;

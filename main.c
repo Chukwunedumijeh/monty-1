@@ -18,7 +18,7 @@ char *lines_check(char *buffer, unsigned int line_number)
 		num_t = strtok(NULL, " \t\n");
 		if (num_t == NULL)
 		{
-			printf("L%u: usage: push integer\n", line_number);
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free(buffer);
 			var_glob[1] = 1;
 			return (NULL);
@@ -29,7 +29,7 @@ char *lines_check(char *buffer, unsigned int line_number)
 				i++;
 			if (num_t[i] < 48 || num_t[i] > 57)
 			{
-				printf("L%u: usage: push integer\n", line_number);
+				fprintf(stderr, "L%u: usage: push integer\n", line_number);
 				free(buffer);
 				var_glob[1] = 1;
 				return (NULL);
@@ -81,6 +81,5 @@ int main(int argc, char *argv[])
 	fclose(file);
 	if (var_glob[1] == 1)
 		exit(EXIT_FAILURE);
-	
 	exit(EXIT_SUCCESS);
 }

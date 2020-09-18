@@ -57,7 +57,7 @@ void functions_monty(stack_t **stack, char *command_f, unsigned int line_numb)
 	}
 	if (checker == 0)
 	{
-		printf("L%d: unknown instruction %s\n", line_numb, command_f);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_numb, command_f);
 		free(command_f);
 		var_glob[1] = 1;
 		exit(EXIT_FAILURE);
