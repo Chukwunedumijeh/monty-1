@@ -31,12 +31,10 @@ void free_malloc(stack_t *head)
 void functions_monty(stack_t **stack, char *command_f, unsigned int line_numb)
 {
 	instruction_t funct_monty[] = {
-		{"pall", pall}, {"push", push},
-		{"pint", pint}, {"pop", pop},
-		{"swap", swap}, {"add", add},
-		{"nop", nop}, {"sub", sub},
-		{"div", _div}, {"mul", mul},
-		{"mod", mod}, {NULL, NULL}};
+		{"pall", pall}, {"push", push}, {"pint", pint},
+		{"pop", pop}, {"swap", swap}, {"add", add},
+		{"nop", nop}, {"sub", sub}, {"div", _div},
+		{"mul", mul}, {"mod", mod}, {NULL, NULL}};
 	unsigned int i = 0;
 	int checker = 0;
 
@@ -57,6 +55,7 @@ void functions_monty(stack_t **stack, char *command_f, unsigned int line_numb)
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_numb, command_f);
 		free(command_f);
 		var_glob[1] = 1;
+		return;
 	}
 }
 /**
