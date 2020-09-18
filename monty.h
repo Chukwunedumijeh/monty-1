@@ -8,7 +8,7 @@
 #include <limits.h>
 #include <unistd.h>
 
-int var_glob[3];
+int var_glob[2];
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -45,5 +45,6 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
-void free_malloc(stack_t **head);
+void nop(stack_t **stack, unsigned int line_number);
+void free_malloc(stack_t *head);
 #endif

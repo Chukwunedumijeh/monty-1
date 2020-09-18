@@ -19,7 +19,8 @@ char *lines_check(char *buffer, unsigned int line_number)
 		if (num_t == NULL)
 		{
 			printf("L%u: usage: push integer\n", line_number);
-			var_glob[1] = -1;
+			free(buffer);
+			var_glob[1] = 1;
 			return (NULL);
 		}
 		for (i = 0; num_t[i] != '\0'; i++)
@@ -29,7 +30,8 @@ char *lines_check(char *buffer, unsigned int line_number)
 			if (num_t[i] < 48 || num_t[i] > 57)
 			{
 				printf("L%u: usage: push integer\n", line_number);
-				var_glob[1] = -1;
+				free(buffer);
+				var_glob[1] = 1;
 				return (NULL);
 			}
 		}
@@ -75,9 +77,9 @@ int main(int argc, char *argv[])
 		functions_monty(&stack, command_f, line_number);
 	}
 	free(buffer);
-	free_malloc(&stack);
-	fclose(file);
-	if (var_glob[1] == -1)
+	free_malloc(stack);
+	if (var_glob[1] == 1)
 		exit(EXIT_FAILURE);
-	return (0);
+	fclose(file);
+	exit(EXIT_SUCCESS);
 }
