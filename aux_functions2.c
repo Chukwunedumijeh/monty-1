@@ -82,7 +82,7 @@ void mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mul - substracts the top elements of the stack.
+ * mul - computes the rest off the division of the second top elements stack.
  * @stack: pointer head stack.
  * @line_number: line number in file.
  * Return: void.
