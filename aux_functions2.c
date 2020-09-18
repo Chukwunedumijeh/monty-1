@@ -98,7 +98,7 @@ void mod(stack_t **stack, unsigned int line_number)
 	}
 	if ((*stack)->n == 0)
 	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		fprintf(stderr, "L%u: division by zero\n", line_number);
 		var_glob[1] = 1;
 		return;
 	}
