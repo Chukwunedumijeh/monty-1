@@ -39,11 +39,12 @@ void functions_monty(stack_t **stack, char *command_f, unsigned int line_numb)
 	    {"pop", pop},
 	    {"swap", swap},
 	    {"add", add},
+	    {"nop", nop},
 	    {NULL, NULL}};
 	unsigned int i = 0;
 	int checker = 0;
 
-	while (i < 6 && command_f != NULL)
+	while (i < 7 && command_f != NULL)
 	{
 
 		if (strcmp(funct_monty[i].opcode, command_f) == 0)

@@ -78,8 +78,9 @@ int main(int argc, char *argv[])
 	}
 	free(buffer);
 	free_malloc(stack);
+	fclose(file);
 	if (var_glob[1] == 1)
 		exit(EXIT_FAILURE);
-	fclose(file);
+	
 	exit(EXIT_SUCCESS);
 }
